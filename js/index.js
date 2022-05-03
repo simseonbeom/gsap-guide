@@ -1,7 +1,7 @@
 let container;
 let stage;
 
-import Animation from './animation.js';
+import Animation from './Animation.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
