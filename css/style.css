@@ -1,0 +1,145 @@
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+canvas{
+    pointer-events: none !important;
+}
+.title{
+    font-family: 'JetBrains Mono', monospace;
+    padding: 1rem;
+    font-size: 3rem;
+    background: rgba(255, 255, 255, 0.737);
+    margin-bottom:5rem;
+    color: green;
+
+}
+
+article{
+    margin:0 2rem 4rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+
+h1{
+    font-size:2rem;
+    text-align: center;
+    padding: 2rem 0 1rem;
+    color: #fff;
+    /* font-family: 'Pretendard',sans-serif; */
+    font-family: 'JetBrains Mono', monospace;
+}
+
+
+pre{
+    margin: 0.5rem 0;
+  
+}
+
+
+
+.stage{
+    border-radius: 10px;
+    background:rgb(60, 60, 60);
+    padding: 3rem;
+    min-height: 5vh;
+    position:relative;
+    margin-bottom: 2rem;
+    /* margin: 0 1rem; */
+}
+
+.box{
+    width: 50px;
+    height: 50px;
+    background:yellow;
+    margin: 1rem;
+    /* position:absolute; */
+    /* left:50%; */
+    /* top: 50%; */
+}
+
+
+button{
+    position:absolute;
+    right: 1rem;
+    top: 1rem;
+    
+    background: #fff;
+    border:none;
+    border-radius: 2px;
+    cursor: pointer;
+    color: black;
+    font-size:1rem;
+}
+
+.notice{
+    color: #ff5e79;
+    font-size:0.9rem;
+    margin: 1rem;
+    position: relative;
+    text-indent: 2rem;
+}
+
+.notice::before{
+    content:'⚠️';
+    position:absolute;
+    left:-2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.function{
+    color: #ffc66d;
+}
+.log{
+    padding:2rem;
+    position:absolute;
+    right: 10rem;
+    top:50%;
+    transform: translateY(-50%);
+    background: rgba(90, 90, 90, 0.776);
+    color: #fff;
+    min-width: 19rem;
+    
+}
+
+.log > div{
+    margin-bottom:1rem;
+}
+
+.log > div:last-child{
+    margin-bottom:0;
+}
+
+.log span{
+    color: yellow;
+}
+
+
+.buttonGroup{
+    position: absolute;
+    right:1rem;
+    top: 1rem;
+    
+}
+
+.buttonGroup > button{
+    display:block;
+    margin-bottom: 0.5rem;
+    position:static;
+}
+
+
+#ground{
+   padding-bottom:10rem;
+}
+
+
+
+
+
+
+
+
+
+

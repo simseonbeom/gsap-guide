@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/plugin/reset.css">
+    <link rel="stylesheet" href="css/plugin/common.css">
+    <link rel="stylesheet" href="css/plugin/androidstudio.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/plugin/jquery-1.8.1.min.js"></script>
+    <script src="js/plugin/highlight.min.js"></script>
+    <script src="js/plugin/easing.js"></script>
+
+</head>
+<body>
+
+
+
+<section id="container">
+
+    <h1 class="title">Green Sock Animation Platform</h1>
+    <section id="ground">
+        <article>
+            <h1>gsap.to( ) </h1>
+            <div class="stage">
+                <div class="box-1 box"></div>
+                <button class="to-restart">reset</button>
+            </div>
+            <pre><code class="language-javascript">gsap.to('.box-1', { duration: 1, x: 300, rotation:360 }) // duration 속성 명시 </code></pre>
+            <pre><code class="language-javascript">gsap.to('.box-1', 1, {x: 300, rotation:360 }) // duration 속성 생략 </code></pre>
+            <div class="notice">duration 속성은 명시적으로 사용하길 권장합니다.</div>
+        </article>
+
+        <article>
+            <h1>gsap.from( ) </h1>
+            <div class="stage">
+                <div class="box-2 box"></div>
+                <button class="from-restart">reset</button>
+            </div>
+            <pre><code class="language-javascript">gsap.from('.box-2', { duration: 1, x: 300, rotation:360 })</code></pre>
+        </article>
+
+       
+        <article>
+            <h1>gsap.fromTo( ) </h1>
+            <div class="stage">
+                <div class="box-3 box"></div>
+                <button class="fromTo-restart">reset</button>
+            </div>
+            <pre><code class="language-javascript">gsap.fromTo('.box-3',{ duration: 1, x: 300 ,rotation:360 },{ duration: 1, x: 0, rotation:0 })</code></pre>
+        </article>
+
+
+        <article>
+            <h1>gsap.set( ) </h1>
+            <div class="stage">
+                <div class="box-4 box"></div>
+                <button class="set-restart">reset</button>
+            </div>
+            <pre><code class="language-javascript">gsap.set('.box-4', { x: 300, rotation:210 })</code></pre>
+            <div class="notice">set 속성엔 duration 속성을 사용할 수 없습니다.</div>
+        </article>
+
+        <article>
+            <h1>gsap.to( ) and gsap.set( ) </h1>
+            <div class="stage">
+                <div class="box-5 box"></div>
+                <button class="set2-restart">reset</button>
+            </div>
+            <pre><code class="language-javascript">gsap.to('.box-5', {duration:1, x: 300, rotation:360, onComplete:()=>{ gsap.set('.box-5',{x:0,rotation:0})} })</code></pre>
+        </article>
+
+        <article>
+            <h1>Timeline gsap.to( )</h1>
+            <div class="stage">
+                <div class="box-6 box"></div>
+                <div class="box-6 box"></div>
+                <div class="box-6 box"></div>
+                <div class="box-6 box"></div>
+                <button class="timeLine-restart">reset</button>
+            </div>
+            <pre><code class="language-javascript">
+                let tl = gsap.timeline();
+
+                tl.to('.box-6:nth-child(1)', { duration: 1, x: 300, rotation: 360 });
+                tl.to('.box-6:nth-child(2)', { duration: 1, x: 300, rotation: 360 });
+                tl.to('.box-6:nth-child(3)', { duration: 1, x: 300, rotation: 360 });
+                tl.to('.box-6:nth-child(4)', { duration: 1, x: 300, rotation: 360 });
+            </code></pre>
+            <div class="notice">타임라인은 이전 트윈이 끝난 후 다음 트윈이 시작됩니다.</div>
+        </article>
+
+        <article>
+            <h1>gsap.to( stagger )</h1>
+            <div class="stage">
+                <div class="box-7 box"></div>
+                <div class="box-7 box"></div>
+                <div class="box-7 box"></div>
+                <div class="box-7 box"></div>
+                <button class="stagger-restart">reset</button>
+            </div>
+            <pre><code class="language-javascript">gsap.to('.box-7',{x:300, rotation:360, stagger:0.1})</code></pre>
+            <div class="notice">stagger값이 음수(-)인 경우 애니메이션이 거꾸로 시작합니다.</div>
+        </article>
+
+        <article>
+            <h1>Callback</h1>
+            <div class="stage">
+                <div class="box-8 box"></div>
+                
+                <button class="callback-restart">reset</button>
+                
+                <div class="log">
+                    <div>onStart : <span class="start"></span></div>
+                    <div>onComplete : <span class="complete"></span></div>
+                    <div>onUpdate : <span class="update"></span></div>
+                </div>
+        
+            </div>
+            <pre><code class="language-javascript">gsap.to('.box-8',{duration:5, x:300, rotation:360, onStart:start(function), onComplete:complete(function),onUpdate:update(function)})</code></pre>
+            <div class="notice">update는 애니메이션이 진행되는 동안 계속 호출됩니다.</div>
+        </article>
+
+        <article>
+            <h1>controls</h1>
+            <div class="stage">
+                <div class="box-9 box"></div>
+                
+                <div class="buttonGroup">
+                    <button class="controls-play">play</button>
+                    <button class="controls-pause">pause</button>
+                    <button class="controls-reverse">reverse</button>
+                    <button class="controls-restart">reset</button>
+                </div>
+  
+        
+            </div>
+            <pre><code class="language-javascript"> controls.play() controls.play() controls.pause() controls.reverse() controls.restart()</code></pre>
+        </article>
+
+    </section>
+
+
+
+</section>
+
+<script>hljs.highlightAll();</script>
+
+<script src="js/plugin/gsap.js"></script>
+<script src="js/plugin/scrollTrigger.js"></script>
+<script src="js/scrollbar.js"></script>
+<script src='https://unpkg.com/smooth-scrollbar@latest/dist/plugins/overscroll.js'></script>
+<script defer src="js/index.js" type="module"></script>
+
+
+
+</body>
+</html>
